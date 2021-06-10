@@ -54,12 +54,17 @@ namespace CarInsuranceAssignment.Controllers
 
                 int age = DateTime.Now.Year - insuree.DateOfBirth.Year;
 
-                if (age <= 25 || age <= 18 || age >= 100)
+                if(age <= 18)
                 {
-                    insuree.Quote = insuree.Quote + 25;
+                    insuree.Quote = insuree.Quote + 100;
                 }
 
-                if (insuree.CarYear <= 2000 || insuree.CarYear >= 2015)
+                if(age >= 19 && age <= 25)
+                {
+                    insuree.Quote = insuree.Quote + 50;
+                }
+
+                if (insuree.CarYear < 2000 || insuree.CarYear > 2015)
                 {
                     insuree.Quote = insuree.Quote + 25;
                 }
@@ -81,12 +86,12 @@ namespace CarInsuranceAssignment.Controllers
 
                 if (insuree.DUI == true)
                 {
-                    insuree.Quote = insuree.Quote + 25m;
+                    insuree.Quote =  insuree.Quote+(insuree.Quote * (1/4));
                 }
 
                 if (insuree.CoverageType == true)
                 {
-                    insuree.Quote = insuree.Quote + 50m;
+                    insuree.Quote = insuree.Quote+50m;
                 }
 
 
